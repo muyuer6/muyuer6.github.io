@@ -74,7 +74,6 @@ NexT.boot.registerEvents = function() {
 };
 
 NexT.boot.refresh = function() {
-
   /**
    * Register JS handlers by condition option.
    * Need to add config option in Front-End at 'layout/_partials/head.swig' file.
