@@ -23,38 +23,36 @@
   <meta name="description" content="Property Information Management（prop_info） 作业时间2022.8.14-2022.9.1，大概17天">
 <meta property="og:type" content="article">
 <meta property="og:title" content="DBMS课设 --物业信息管理">
-<meta property="og:url" content="http://muyuer6.github.io/2022/09/06/10/%E6%95%B0%E6%8D%AE%E5%BA%93/%E9%A1%B9%E7%9B%AE%E6%90%AD%E5%BB%BA%E6%80%9D%E8%B7%AF%EF%BC%88%E6%95%B4%E7%90%86%E5%90%8E%EF%BC%89/%E6%95%B0%E6%8D%AE%E5%BA%93/index.html">
+<meta property="og:url" content="http://muyuer6.github.io/2022/09/06/10/%E6%95%B0%E6%8D%AE%E5%BA%93/%E6%95%B0%E6%8D%AE%E5%BA%93%E8%AF%BE%E8%AE%BE%E6%96%87%E6%A1%A3/%E6%95%B0%E6%8D%AE%E5%BA%93/index.html">
 <meta property="og:site_name" content="木鱼削箫的摸鱼日志">
 <meta property="og:description" content="Property Information Management（prop_info） 作业时间2022.8.14-2022.9.1，大概17天">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="d:/MyWeb/myblog/hexoblog/source/imgs/DBMS/功能模块.png">
-<meta property="og:image" content="d:/MyWeb/myblog/hexoblog/source/imgs/DBMS/用例图.png">
-<meta property="og:image" content="d:/MyWeb/myblog/hexoblog/source/imgs/DBMS/房屋信息.png">
-<meta property="og:image" content="d:/MyWeb/myblog/hexoblog/source/imgs/DBMS/房屋-查看业主.png">
-<meta property="og:image" content="d:/MyWeb/myblog/hexoblog/source/imgs/DBMS/房屋编辑&新增.png">
-<meta property="og:image" content="d:/MyWeb/myblog/hexoblog/source/imgs/DBMS/车位信息.png">
-<meta property="og:image" content="d:/MyWeb/myblog/hexoblog/source/imgs/DBMS/车位-查看信息.png">
-<meta property="og:image" content="d:/MyWeb/myblog/hexoblog/source/imgs/DBMS/车位编辑&新增.png">
-<meta property="og:image" content="d:/MyWeb/myblog/hexoblog/source/imgs/DBMS/业主信息.png">
-<meta property="og:image" content="d:/MyWeb/myblog/hexoblog/source/imgs/DBMS/业主-房产车位.png">
-<meta property="og:image" content="d:/MyWeb/myblog/hexoblog/source/imgs/DBMS/业主-缴费.png">
-<meta property="og:image" content="d:/MyWeb/myblog/hexoblog/source/imgs/DBMS/业主-房产车位.png">
-<meta property="og:image" content="d:/MyWeb/myblog/hexoblog/source/imgs/DBMS/物业账单.png">
-<meta property="og:image" content="d:/MyWeb/myblog/hexoblog/source/imgs/DBMS/物业账单-年与季筛选.png">
-<meta property="og:image" content="d:/MyWeb/myblog/hexoblog/source/imgs/DBMS/物业账单-月筛选.png">
-<meta property="og:image" content="d:/MyWeb/myblog/hexoblog/source/imgs/DBMS/报表-折线.png">
-<meta property="og:image" content="d:/MyWeb/myblog/hexoblog/source/imgs/DBMS/报表-饼.png">
-<meta property="og:image" content="c:/Users/Stronger/AppData/Roaming/Typora/typora-user-images/image-20220809204506260.png">
-<meta property="og:image" content="c:/Users/Stronger/AppData/Roaming/Typora/typora-user-images/image-20220809223141007.png">
-<meta property="og:image" content="g:/study/学习/now/数据库课设/报告/物业管理系统ER图全属性.png">
+<meta property="og:image" content="http://muyuer6.github.io/imgs/DBMS/%E5%8A%9F%E8%83%BD%E6%A8%A1%E5%9D%97.png">
+<meta property="og:image" content="http://muyuer6.github.io/imgs/DBMS/%E7%94%A8%E4%BE%8B%E5%9B%BE.png">
+<meta property="og:image" content="http://muyuer6.github.io/imgs/DBMS/%E6%88%BF%E5%B1%8B%E4%BF%A1%E6%81%AF.png">
+<meta property="og:image" content="http://muyuer6.github.io/imgs/DBMS/%E6%88%BF%E5%B1%8B-%E6%9F%A5%E7%9C%8B%E4%B8%9A%E4%B8%BB.png">
+<meta property="og:image" content="http://muyuer6.github.io/imgs/DBMS/%E6%88%BF%E5%B1%8B%E7%BC%96%E8%BE%91&%E6%96%B0%E5%A2%9E.png">
+<meta property="og:image" content="http://muyuer6.github.io/imgs/DBMS/%E8%BD%A6%E4%BD%8D%E4%BF%A1%E6%81%AF.png">
+<meta property="og:image" content="http://muyuer6.github.io/imgs/DBMS/%E8%BD%A6%E4%BD%8D-%E6%9F%A5%E7%9C%8B%E4%BF%A1%E6%81%AF.png">
+<meta property="og:image" content="http://muyuer6.github.io/imgs/DBMS/%E8%BD%A6%E4%BD%8D%E7%BC%96%E8%BE%91&%E6%96%B0%E5%A2%9E.png">
+<meta property="og:image" content="http://muyuer6.github.io/imgs/DBMS/%E4%B8%9A%E4%B8%BB%E4%BF%A1%E6%81%AF.png">
+<meta property="og:image" content="http://muyuer6.github.io/imgs/DBMS/%E4%B8%9A%E4%B8%BB-%E6%88%BF%E4%BA%A7%E8%BD%A6%E4%BD%8D.png">
+<meta property="og:image" content="http://muyuer6.github.io/imgs/DBMS/%E4%B8%9A%E4%B8%BB-%E7%BC%B4%E8%B4%B9.png">
+<meta property="og:image" content="http://muyuer6.github.io/imgs/DBMS/%E4%B8%9A%E4%B8%BB-%E6%88%BF%E4%BA%A7%E8%BD%A6%E4%BD%8D.png">
+<meta property="og:image" content="http://muyuer6.github.io/imgs/DBMS/%E7%89%A9%E4%B8%9A%E8%B4%A6%E5%8D%95.png">
+<meta property="og:image" content="http://muyuer6.github.io/imgs/DBMS/%E7%89%A9%E4%B8%9A%E8%B4%A6%E5%8D%95-%E5%B9%B4%E4%B8%8E%E5%AD%A3%E7%AD%9B%E9%80%89.png">
+<meta property="og:image" content="http://muyuer6.github.io/imgs/DBMS/%E7%89%A9%E4%B8%9A%E8%B4%A6%E5%8D%95-%E6%9C%88%E7%AD%9B%E9%80%89.png">
+<meta property="og:image" content="http://muyuer6.github.io/imgs/DBMS/%E6%8A%A5%E8%A1%A8-%E6%8A%98%E7%BA%BF.png">
+<meta property="og:image" content="http://muyuer6.github.io/imgs/DBMS/echart-pie.png">
+<meta property="og:image" content="http://muyuer6.github.io/imgs/DBMS/%E7%89%A9%E4%B8%9A%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9FER%E5%9B%BE%E5%85%A8%E5%B1%9E%E6%80%A7.png">
 <meta property="article:published_time" content="2022-09-06T02:42:45.520Z">
-<meta property="article:modified_time" content="2022-09-06T02:56:55.137Z">
+<meta property="article:modified_time" content="2022-09-06T04:37:48.519Z">
 <meta property="article:author" content="muyu">
 <meta property="article:tag" content="working.log">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="d:/MyWeb/myblog/hexoblog/source/imgs/DBMS/功能模块.png">
+<meta name="twitter:image" content="http://muyuer6.github.io/imgs/DBMS/%E5%8A%9F%E8%83%BD%E6%A8%A1%E5%9D%97.png">
 
-<link rel="canonical" href="http://muyuer6.github.io/2022/09/06/10/%E6%95%B0%E6%8D%AE%E5%BA%93/%E9%A1%B9%E7%9B%AE%E6%90%AD%E5%BB%BA%E6%80%9D%E8%B7%AF%EF%BC%88%E6%95%B4%E7%90%86%E5%90%8E%EF%BC%89/%E6%95%B0%E6%8D%AE%E5%BA%93/">
+<link rel="canonical" href="http://muyuer6.github.io/2022/09/06/10/%E6%95%B0%E6%8D%AE%E5%BA%93/%E6%95%B0%E6%8D%AE%E5%BA%93%E8%AF%BE%E8%AE%BE%E6%96%87%E6%A1%A3/%E6%95%B0%E6%8D%AE%E5%BA%93/">
 
 
 <script id="page-configurations">
@@ -178,7 +176,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://muyuer6.github.io/2022/09/06/10/%E6%95%B0%E6%8D%AE%E5%BA%93/%E9%A1%B9%E7%9B%AE%E6%90%AD%E5%BB%BA%E6%80%9D%E8%B7%AF%EF%BC%88%E6%95%B4%E7%90%86%E5%90%8E%EF%BC%89/%E6%95%B0%E6%8D%AE%E5%BA%93/">
+    <link itemprop="mainEntityOfPage" href="http://muyuer6.github.io/2022/09/06/10/%E6%95%B0%E6%8D%AE%E5%BA%93/%E6%95%B0%E6%8D%AE%E5%BA%93%E8%AF%BE%E8%AE%BE%E6%96%87%E6%A1%A3/%E6%95%B0%E6%8D%AE%E5%BA%93/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -202,7 +200,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2022-09-06 10:42:45 / 修改时间：10:56:55" itemprop="dateCreated datePublished" datetime="2022-09-06T10:42:45+08:00">2022-09-06</time>
+              <time title="创建时间：2022-09-06 10:42:45 / 修改时间：12:37:48" itemprop="dateCreated datePublished" datetime="2022-09-06T10:42:45+08:00">2022-09-06</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -229,7 +227,7 @@
 <p>作业时间2022.8.14-2022.9.1，大概17天</p>
 <span id="more"></span>
 
-<h1 id="DBMS课设-–物业信息管理"><a href="#DBMS课设-–物业信息管理" class="headerlink" title="DBMS课设 –物业信息管理"></a>DBMS课设 –物业信息管理</h1><p>Property Information Management（prop_info）</p>
+<h2 id="DBMS课设-–物业信息管理"><a href="#DBMS课设-–物业信息管理" class="headerlink" title="DBMS课设 –物业信息管理"></a>DBMS课设 –物业信息管理</h2><p>Property Information Management（prop_info）</p>
 <p>作业时间2022.8.14-2022.9.1，大概17天</p>
 <p>主要信息管理: 业主信息、房屋信息</p>
 <p>■费用收取： 物业费、水电煤气、有线电视、供暖、车位</p>
@@ -239,9 +237,9 @@
 <p>数据库：Mysql</p>
 <p>版本信息在具体模块查看</p>
 <h2 id="系统功能分析"><a href="#系统功能分析" class="headerlink" title="系统功能分析"></a>系统功能分析</h2><p>定位为供物业工作人员使用的信息管理系统，功能分为四大模块</p>
-<p><img src="D:\MyWeb\myblog\hexoblog\source\imgs\DBMS\功能模块.png" alt="功能模块"></p>
+<p><img src="/imgs/DBMS/%E5%8A%9F%E8%83%BD%E6%A8%A1%E5%9D%97.png" alt="功能模块"></p>
 <p>具体功能通过用例图来展示</p>
-<p><img src="D:\MyWeb\myblog\hexoblog\source\imgs\DBMS\用例图.png" alt="用例图"></p>
+<p><img src="/imgs/DBMS/%E7%94%A8%E4%BE%8B%E5%9B%BE.png" alt="用例图"></p>
 <h3 id="部分功能分析"><a href="#部分功能分析" class="headerlink" title="部分功能分析"></a>部分功能分析</h3><h4 id="数据分析"><a href="#数据分析" class="headerlink" title="数据分析"></a>数据分析</h4><p>初期：房屋、业主、车位设置（3000-10000）</p>
 <p>稳定后：缴费（月增2000-4000）</p>
 <h4 id="限购"><a href="#限购" class="headerlink" title="限购"></a>限购</h4><p>房屋、车位限购</p>
@@ -257,32 +255,32 @@
 <li>共同业主共享缴费清单，避免重复缴费。</li>
 </ul>
 <h3 id="房屋管理"><a href="#房屋管理" class="headerlink" title="房屋管理"></a>房屋管理</h3><p>房屋信息</p>
-<p><img src="D:\MyWeb\myblog\hexoblog\source\imgs\DBMS\房屋信息.png" alt="房屋信息"></p>
+<p><img src="/imgs/DBMS/%E6%88%BF%E5%B1%8B%E4%BF%A1%E6%81%AF.png" alt="房屋信息"></p>
 <p>房屋-查看业主</p>
-<p><img src="D:\MyWeb\myblog\hexoblog\source\imgs\DBMS\房屋-查看业主.png" alt="房屋-查看业主"></p>
+<p><img src="/imgs/DBMS/%E6%88%BF%E5%B1%8B-%E6%9F%A5%E7%9C%8B%E4%B8%9A%E4%B8%BB.png" alt="房屋-查看业主"></p>
 <p>房屋编辑&amp;新增</p>
-<p><img src="D:\MyWeb\myblog\hexoblog\source\imgs\DBMS\房屋编辑&新增.png" alt="房屋编辑&amp;新增"></p>
+<p><img src="/imgs/DBMS/%E6%88%BF%E5%B1%8B%E7%BC%96%E8%BE%91&%E6%96%B0%E5%A2%9E.png" alt="房屋编辑&amp;新增"></p>
 <h3 id="车位管理"><a href="#车位管理" class="headerlink" title="车位管理"></a>车位管理</h3><p>车位信息</p>
-<p><img src="D:\MyWeb\myblog\hexoblog\source\imgs\DBMS\车位信息.png" alt="车位信息"></p>
+<p><img src="/imgs/DBMS/%E8%BD%A6%E4%BD%8D%E4%BF%A1%E6%81%AF.png" alt="车位信息"></p>
 <p>车位-查看业主</p>
-<p><img src="D:\MyWeb\myblog\hexoblog\source\imgs\DBMS\车位-查看信息.png" alt="车位-查看信息"></p>
+<p><img src="/imgs/DBMS/%E8%BD%A6%E4%BD%8D-%E6%9F%A5%E7%9C%8B%E4%BF%A1%E6%81%AF.png" alt="车位-查看信息"></p>
 <p>车位-编辑&amp;新增</p>
-<p><img src="D:\MyWeb\myblog\hexoblog\source\imgs\DBMS\车位编辑&新增.png" alt="车位编辑&amp;新增"></p>
+<p><img src="/imgs/DBMS/%E8%BD%A6%E4%BD%8D%E7%BC%96%E8%BE%91&%E6%96%B0%E5%A2%9E.png" alt="车位编辑&amp;新增"></p>
 <h3 id="业主管理"><a href="#业主管理" class="headerlink" title="业主管理"></a>业主管理</h3><p>业主信息</p>
-<p><img src="D:\MyWeb\myblog\hexoblog\source\imgs\DBMS\业主信息.png" alt="业主信息"></p>
+<p><img src="/imgs/DBMS/%E4%B8%9A%E4%B8%BB%E4%BF%A1%E6%81%AF.png" alt="业主信息"></p>
 <p>业主-房产车位</p>
-<p><img src="D:\MyWeb\myblog\hexoblog\source\imgs\DBMS\业主-房产车位.png" alt="业主-房产车位"></p>
-<p>业主-缴费<img src="D:\MyWeb\myblog\hexoblog\source\imgs\DBMS\业主-缴费.png" alt="业主-缴费"></p>
+<p><img src="/imgs/DBMS/%E4%B8%9A%E4%B8%BB-%E6%88%BF%E4%BA%A7%E8%BD%A6%E4%BD%8D.png" alt="业主-房产车位"></p>
+<p>业主-缴费<img src="/imgs/DBMS/%E4%B8%9A%E4%B8%BB-%E7%BC%B4%E8%B4%B9.png" alt="业主-缴费"></p>
 <p>业主-房产车位</p>
-<p><img src="D:\MyWeb\myblog\hexoblog\source\imgs\DBMS\业主-房产车位.png" alt="业主-房产车位"></p>
-<h3 id="物业账单"><a href="#物业账单" class="headerlink" title="物业账单"></a>物业账单</h3><p>物业账单<img src="D:\MyWeb\myblog\hexoblog\source\imgs\DBMS\物业账单.png" alt="物业账单"></p>
+<p><img src="/imgs/DBMS/%E4%B8%9A%E4%B8%BB-%E6%88%BF%E4%BA%A7%E8%BD%A6%E4%BD%8D.png" alt="业主-房产车位"></p>
+<h3 id="物业账单"><a href="#物业账单" class="headerlink" title="物业账单"></a>物业账单</h3><p>物业账单<img src="/imgs/DBMS/%E7%89%A9%E4%B8%9A%E8%B4%A6%E5%8D%95.png" alt="物业账单"></p>
 <p>物业账单-年与季筛选</p>
-<p><img src="D:\MyWeb\myblog\hexoblog\source\imgs\DBMS\物业账单-年与季筛选.png" alt="物业账单-年与季筛选"></p>
-<p>物业账单-月筛选<img src="D:\MyWeb\myblog\hexoblog\source\imgs\DBMS\物业账单-月筛选.png" alt="物业账单-月筛选"></p>
+<p><img src="/imgs/DBMS/%E7%89%A9%E4%B8%9A%E8%B4%A6%E5%8D%95-%E5%B9%B4%E4%B8%8E%E5%AD%A3%E7%AD%9B%E9%80%89.png" alt="物业账单-年与季筛选"></p>
+<p>物业账单-月筛选<img src="/imgs/DBMS/%E7%89%A9%E4%B8%9A%E8%B4%A6%E5%8D%95-%E6%9C%88%E7%AD%9B%E9%80%89.png" alt="物业账单-月筛选"></p>
 <p>报表-折线</p>
-<p><img src="D:\MyWeb\myblog\hexoblog\source\imgs\DBMS\报表-折线.png" alt="报表-折线"></p>
+<p><img src="/imgs/DBMS/%E6%8A%A5%E8%A1%A8-%E6%8A%98%E7%BA%BF.png" alt="报表-折线"></p>
 <p>报表-饼</p>
-<p><img src="D:\MyWeb\myblog\hexoblog\source\imgs\DBMS\报表-饼.png" alt="报表-饼"></p>
+<p><img src="/imgs/DBMS/echart-pie.png" alt="报表-饼"></p>
 <h2 id="前端prop-vue"><a href="#前端prop-vue" class="headerlink" title="前端prop_vue"></a>前端prop_vue</h2><h3 id="项目搭建"><a href="#项目搭建" class="headerlink" title="项目搭建"></a>项目搭建</h3><p>1、环境配置：</p>
 <p>node  v16.13.1</p>
 <p>npm   v8.14.0</p>
@@ -324,7 +322,7 @@
 <p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_43471802/article/details/109136061?utm_medium=distribute.pc_category.none-task-blog-hot-2.nonecase&depth_1-utm_source=distribute.pc_category.none-task-blog-hot-2.nonecase&request_id=">如何在Vue中使用Echarts可视化库_</a></p>
 <h2 id="后端prop-serve"><a href="#后端prop-serve" class="headerlink" title="后端prop_serve"></a>后端prop_serve</h2><p>SpringBoot+MybatisPlus</p>
 <p>版本信息：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">SpringBoot  2.7.2</span><br><span class="line">MybatisPlus 3.5.2</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">SpringBoot  2.7.2</span><br><span class="line">MybatisPlus 3.5.2</span><br><span class="line">jdk 1.8</span><br></pre></td></tr></table></figure>
 
 <h3 id="项目搭建-1"><a href="#项目搭建-1" class="headerlink" title="项目搭建"></a>项目搭建</h3><p>地址D:\code\DBMS\prop_info\prop_serve</p>
 <p>(若使用idea操作，在大文件夹下D:\code\DBMS\prop_info创建一个子模块maven即可)</p>
@@ -339,10 +337,9 @@
 <li><p>springweb, Lombok, MyBatis plus</p>
 </li>
 </ol>
-<p>  <img src="C:\Users\Stronger\AppData\Roaming\Typora\typora-user-images\image-20220809204506260.png" alt="image-20220809204506260"></p>
 <p>  方式二：通过[官网](<a target="_blank" rel="noopener" href="https://start.spring.io/">Spring Initializr</a>)来创建，类似vue</p>
-<p>  （网络问题再现，移动网mmp，挂了梯子才行）</p>
-<p>  <img src="C:\Users\Stronger\AppData\Roaming\Typora\typora-user-images\image-20220809223141007.png" alt="image-20220809223141007"></p>
+<p>  （网络问题再现，移动网mmp，挂了梯子才行。</p>
+<p>Could not connnect to server. Please check your network.</p>
 <h3 id="功能-1"><a href="#功能-1" class="headerlink" title="功能"></a>功能</h3><h4 id="项目细节初见"><a href="#项目细节初见" class="headerlink" title="项目细节初见"></a>项目细节初见</h4><p>初见</p>
 <p>先准备好几个文件夹，用于放不同类型的java文件</p>
 <p>如entity，存放项目的实体类；controller存放业务功能类；mapper存放mapper文件。</p>
@@ -409,7 +406,7 @@
 
 <h3 id="数据库设计"><a href="#数据库设计" class="headerlink" title="数据库设计"></a>数据库设计</h3><p><strong>ER图和表结构</strong></p>
 <p>说明：表中设置seleId选择标记的作用是，实现对unique属性的编辑。比如说要修改一个人的证件号和其他身份信息，如果把证件号作为主键，后端实现修改功能时就会很复杂，而且这样的操作也是危险的，因为它是与其他信息有所关联的。</p>
-<h4 id="ER图"><a href="#ER图" class="headerlink" title="ER图"></a>ER图</h4><p><img src="G:\study\学习\now\数据库课设\报告\物业管理系统ER图全属性.png" alt="物业管理系统ER图全属性"></p>
+<h4 id="ER图"><a href="#ER图" class="headerlink" title="ER图"></a>ER图</h4><p><img src="/imgs/DBMS/%E7%89%A9%E4%B8%9A%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9FER%E5%9B%BE%E5%85%A8%E5%B1%9E%E6%80%A7.png" alt="物业管理系统ER图全属性"></p>
 <h4 id="业主表owner"><a href="#业主表owner" class="headerlink" title="业主表owner"></a>业主表owner</h4><table>
 <thead>
 <tr>
@@ -853,7 +850,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#DBMS%E8%AF%BE%E8%AE%BE-%E2%80%93%E7%89%A9%E4%B8%9A%E4%BF%A1%E6%81%AF%E7%AE%A1%E7%90%86"><span class="nav-number">1.</span> <span class="nav-text">DBMS课设 –物业信息管理</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A1%B9%E7%9B%AE%E7%BB%93%E6%9E%84"><span class="nav-number">1.1.</span> <span class="nav-text">项目结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%B3%BB%E7%BB%9F%E5%8A%9F%E8%83%BD%E5%88%86%E6%9E%90"><span class="nav-number">1.2.</span> <span class="nav-text">系统功能分析</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%83%A8%E5%88%86%E5%8A%9F%E8%83%BD%E5%88%86%E6%9E%90"><span class="nav-number">1.2.1.</span> <span class="nav-text">部分功能分析</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90"><span class="nav-number">1.2.1.1.</span> <span class="nav-text">数据分析</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%99%90%E8%B4%AD"><span class="nav-number">1.2.1.2.</span> <span class="nav-text">限购</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%80%BB%E8%B4%A6%E5%8D%95"><span class="nav-number">1.2.1.3.</span> <span class="nav-text">总账单</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%85%B6%E4%BB%96%E5%AE%89%E5%85%A8%E6%9C%BA%E5%88%B6"><span class="nav-number">1.2.1.4.</span> <span class="nav-text">其他安全机制</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%88%BF%E5%B1%8B%E7%AE%A1%E7%90%86"><span class="nav-number">1.2.2.</span> <span class="nav-text">房屋管理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BD%A6%E4%BD%8D%E7%AE%A1%E7%90%86"><span class="nav-number">1.2.3.</span> <span class="nav-text">车位管理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%9A%E4%B8%BB%E7%AE%A1%E7%90%86"><span class="nav-number">1.2.4.</span> <span class="nav-text">业主管理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%89%A9%E4%B8%9A%E8%B4%A6%E5%8D%95"><span class="nav-number">1.2.5.</span> <span class="nav-text">物业账单</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E7%AB%AFprop-vue"><span class="nav-number">1.3.</span> <span class="nav-text">前端prop_vue</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A1%B9%E7%9B%AE%E6%90%AD%E5%BB%BA"><span class="nav-number">1.3.1.</span> <span class="nav-text">项目搭建</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8A%9F%E8%83%BD"><span class="nav-number">1.3.2.</span> <span class="nav-text">功能</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%97%AE%E9%A2%98"><span class="nav-number">1.3.3.</span> <span class="nav-text">问题</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%90%8E%E7%AB%AFprop-serve"><span class="nav-number">1.4.</span> <span class="nav-text">后端prop_serve</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A1%B9%E7%9B%AE%E6%90%AD%E5%BB%BA-1"><span class="nav-number">1.4.1.</span> <span class="nav-text">项目搭建</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8A%9F%E8%83%BD-1"><span class="nav-number">1.4.2.</span> <span class="nav-text">功能</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%A1%B9%E7%9B%AE%E7%BB%86%E8%8A%82%E5%88%9D%E8%A7%81"><span class="nav-number">1.4.2.1.</span> <span class="nav-text">项目细节初见</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#entity%E7%B1%BB"><span class="nav-number">1.4.2.1.1.</span> <span class="nav-text">entity类</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#mapper%E7%B1%BB"><span class="nav-number">1.4.2.1.2.</span> <span class="nav-text">mapper类</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#controller%E7%B1%BB"><span class="nav-number">1.4.2.1.3.</span> <span class="nav-text">controller类</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#common%E7%B1%BB"><span class="nav-number">1.4.2.1.4.</span> <span class="nav-text">common类</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E5%BA%93%E8%BF%9E%E6%8E%A5"><span class="nav-number">1.4.2.2.</span> <span class="nav-text">数据库连接</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%A2%9E%E5%8A%A0%E5%8A%9F%E8%83%BD"><span class="nav-number">1.4.2.3.</span> <span class="nav-text">增加功能</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%BC%96%E8%BE%91%E5%8A%9F%E8%83%BD"><span class="nav-number">1.4.2.4.</span> <span class="nav-text">编辑功能</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%88%A0%E9%99%A4%E5%8A%9F%E8%83%BD"><span class="nav-number">1.4.2.5.</span> <span class="nav-text">删除功能</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9F%A5%E8%AF%A2%E5%8A%9F%E8%83%BD"><span class="nav-number">1.4.2.6.</span> <span class="nav-text">查询功能</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%88%86%E9%A1%B5"><span class="nav-number">1.4.2.7.</span> <span class="nav-text">分页</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%97%AE%E9%A2%98-1"><span class="nav-number">1.4.3.</span> <span class="nav-text">问题</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E5%BA%93prop-info"><span class="nav-number">1.5.</span> <span class="nav-text">数据库prop_info</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E5%BA%93%E8%AE%BE%E8%AE%A1"><span class="nav-number">1.5.1.</span> <span class="nav-text">数据库设计</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#ER%E5%9B%BE"><span class="nav-number">1.5.1.1.</span> <span class="nav-text">ER图</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%9A%E4%B8%BB%E8%A1%A8owner"><span class="nav-number">1.5.1.2.</span> <span class="nav-text">业主表owner</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%88%BF%E5%B1%8B%E8%A1%A8house"><span class="nav-number">1.5.1.3.</span> <span class="nav-text">房屋表house</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%88%BF%E4%BA%A7%E7%BB%91%E5%AE%9A%E8%A1%A8-housebinding"><span class="nav-number">1.5.1.4.</span> <span class="nav-text">房产绑定表 housebinding</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BD%A6%E4%BD%8D%E8%A1%A8-parkinglot"><span class="nav-number">1.5.1.5.</span> <span class="nav-text">车位表 parkinglot</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BD%A6%E4%BD%8D%E7%BB%91%E5%AE%9Aparkbinding"><span class="nav-number">1.5.1.6.</span> <span class="nav-text">车位绑定parkbinding</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%88%BF%E5%B1%8B%E7%BC%B4%E8%B4%B9%E8%A1%A8perfee"><span class="nav-number">1.5.1.7.</span> <span class="nav-text">房屋缴费表perfee</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%89%A9%E4%B8%9A%E6%80%BB%E7%BC%B4%E8%B4%B9%E8%A1%A8"><span class="nav-number">1.5.1.8.</span> <span class="nav-text">物业总缴费表</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A8%A1%E6%8B%9F%E6%95%B0%E6%8D%AE%E6%89%B9%E9%87%8F%E7%94%9F%E6%88%90"><span class="nav-number">1.5.2.</span> <span class="nav-text">模拟数据批量生成</span></a></li></ol></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#DBMS%E8%AF%BE%E8%AE%BE-%E2%80%93%E7%89%A9%E4%B8%9A%E4%BF%A1%E6%81%AF%E7%AE%A1%E7%90%86"><span class="nav-number">1.</span> <span class="nav-text">DBMS课设 –物业信息管理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A1%B9%E7%9B%AE%E7%BB%93%E6%9E%84"><span class="nav-number">2.</span> <span class="nav-text">项目结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%B3%BB%E7%BB%9F%E5%8A%9F%E8%83%BD%E5%88%86%E6%9E%90"><span class="nav-number">3.</span> <span class="nav-text">系统功能分析</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%83%A8%E5%88%86%E5%8A%9F%E8%83%BD%E5%88%86%E6%9E%90"><span class="nav-number">3.1.</span> <span class="nav-text">部分功能分析</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90"><span class="nav-number">3.1.1.</span> <span class="nav-text">数据分析</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%99%90%E8%B4%AD"><span class="nav-number">3.1.2.</span> <span class="nav-text">限购</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%80%BB%E8%B4%A6%E5%8D%95"><span class="nav-number">3.1.3.</span> <span class="nav-text">总账单</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%85%B6%E4%BB%96%E5%AE%89%E5%85%A8%E6%9C%BA%E5%88%B6"><span class="nav-number">3.1.4.</span> <span class="nav-text">其他安全机制</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%88%BF%E5%B1%8B%E7%AE%A1%E7%90%86"><span class="nav-number">3.2.</span> <span class="nav-text">房屋管理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BD%A6%E4%BD%8D%E7%AE%A1%E7%90%86"><span class="nav-number">3.3.</span> <span class="nav-text">车位管理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%9A%E4%B8%BB%E7%AE%A1%E7%90%86"><span class="nav-number">3.4.</span> <span class="nav-text">业主管理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%89%A9%E4%B8%9A%E8%B4%A6%E5%8D%95"><span class="nav-number">3.5.</span> <span class="nav-text">物业账单</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E7%AB%AFprop-vue"><span class="nav-number">4.</span> <span class="nav-text">前端prop_vue</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A1%B9%E7%9B%AE%E6%90%AD%E5%BB%BA"><span class="nav-number">4.1.</span> <span class="nav-text">项目搭建</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8A%9F%E8%83%BD"><span class="nav-number">4.2.</span> <span class="nav-text">功能</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%97%AE%E9%A2%98"><span class="nav-number">4.3.</span> <span class="nav-text">问题</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%90%8E%E7%AB%AFprop-serve"><span class="nav-number">5.</span> <span class="nav-text">后端prop_serve</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A1%B9%E7%9B%AE%E6%90%AD%E5%BB%BA-1"><span class="nav-number">5.1.</span> <span class="nav-text">项目搭建</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8A%9F%E8%83%BD-1"><span class="nav-number">5.2.</span> <span class="nav-text">功能</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%A1%B9%E7%9B%AE%E7%BB%86%E8%8A%82%E5%88%9D%E8%A7%81"><span class="nav-number">5.2.1.</span> <span class="nav-text">项目细节初见</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#entity%E7%B1%BB"><span class="nav-number">5.2.1.1.</span> <span class="nav-text">entity类</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#mapper%E7%B1%BB"><span class="nav-number">5.2.1.2.</span> <span class="nav-text">mapper类</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#controller%E7%B1%BB"><span class="nav-number">5.2.1.3.</span> <span class="nav-text">controller类</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#common%E7%B1%BB"><span class="nav-number">5.2.1.4.</span> <span class="nav-text">common类</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E5%BA%93%E8%BF%9E%E6%8E%A5"><span class="nav-number">5.2.2.</span> <span class="nav-text">数据库连接</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%A2%9E%E5%8A%A0%E5%8A%9F%E8%83%BD"><span class="nav-number">5.2.3.</span> <span class="nav-text">增加功能</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%BC%96%E8%BE%91%E5%8A%9F%E8%83%BD"><span class="nav-number">5.2.4.</span> <span class="nav-text">编辑功能</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%88%A0%E9%99%A4%E5%8A%9F%E8%83%BD"><span class="nav-number">5.2.5.</span> <span class="nav-text">删除功能</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9F%A5%E8%AF%A2%E5%8A%9F%E8%83%BD"><span class="nav-number">5.2.6.</span> <span class="nav-text">查询功能</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%88%86%E9%A1%B5"><span class="nav-number">5.2.7.</span> <span class="nav-text">分页</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%97%AE%E9%A2%98-1"><span class="nav-number">5.3.</span> <span class="nav-text">问题</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E5%BA%93prop-info"><span class="nav-number">6.</span> <span class="nav-text">数据库prop_info</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E5%BA%93%E8%AE%BE%E8%AE%A1"><span class="nav-number">6.1.</span> <span class="nav-text">数据库设计</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#ER%E5%9B%BE"><span class="nav-number">6.1.1.</span> <span class="nav-text">ER图</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%9A%E4%B8%BB%E8%A1%A8owner"><span class="nav-number">6.1.2.</span> <span class="nav-text">业主表owner</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%88%BF%E5%B1%8B%E8%A1%A8house"><span class="nav-number">6.1.3.</span> <span class="nav-text">房屋表house</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%88%BF%E4%BA%A7%E7%BB%91%E5%AE%9A%E8%A1%A8-housebinding"><span class="nav-number">6.1.4.</span> <span class="nav-text">房产绑定表 housebinding</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BD%A6%E4%BD%8D%E8%A1%A8-parkinglot"><span class="nav-number">6.1.5.</span> <span class="nav-text">车位表 parkinglot</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BD%A6%E4%BD%8D%E7%BB%91%E5%AE%9Aparkbinding"><span class="nav-number">6.1.6.</span> <span class="nav-text">车位绑定parkbinding</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%88%BF%E5%B1%8B%E7%BC%B4%E8%B4%B9%E8%A1%A8perfee"><span class="nav-number">6.1.7.</span> <span class="nav-text">房屋缴费表perfee</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%89%A9%E4%B8%9A%E6%80%BB%E7%BC%B4%E8%B4%B9%E8%A1%A8"><span class="nav-number">6.1.8.</span> <span class="nav-text">物业总缴费表</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A8%A1%E6%8B%9F%E6%95%B0%E6%8D%AE%E6%89%B9%E9%87%8F%E7%94%9F%E6%88%90"><span class="nav-number">6.2.</span> <span class="nav-text">模拟数据批量生成</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
