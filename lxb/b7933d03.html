@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"muyuer6.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="记录OpenCV入门经历以及数字图像处理课程的实验">
+<meta property="og:type" content="article">
+<meta property="og:title" content="OpenCV之图像显示">
+<meta property="og:url" content="http://muyuer6.github.io/lxb/b7933d03.html">
+<meta property="og:site_name" content="木鱼削箫的摸鱼日志">
+<meta property="og:description" content="记录OpenCV入门经历以及数字图像处理课程的实验">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://muyuer6.github.io/lxb/undefined/image-20221027204812288.png">
+<meta property="og:image" content="http://muyuer6.github.io/lxb/undefined/clip_image002.jpg">
+<meta property="og:image" content="http://muyuer6.github.io/lxb/undefined/image-20221027221157348.png">
+<meta property="og:image" content="http://muyuer6.github.io/lxb/undefined/image-20221028222036144.png">
+<meta property="og:image" content="http://muyuer6.github.io/lxb/undefined/image-20221028223134711.png">
+<meta property="og:image" content="http://muyuer6.github.io/lxb/undefined/image-20221028230419526.png">
+<meta property="og:image" content="http://muyuer6.github.io/lxb/undefined/res.gif">
+<meta property="article:published_time" content="2022-10-27T12:10:42.994Z">
+<meta property="article:modified_time" content="2022-10-29T01:56:03.974Z">
+<meta property="article:author" content="muyu">
+<meta property="article:tag" content="working.log">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://muyuer6.github.io/lxb/undefined/image-20221027204812288.png">
+
+<link rel="canonical" href="http://muyuer6.github.io/lxb/b7933d03.html">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>OpenCV之图像显示 | 木鱼削箫的摸鱼日志</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">木鱼削箫的摸鱼日志</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">( ￥ _ ￥ )</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://muyuer6.github.io/lxb/b7933d03.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="muyu">
+      <meta itemprop="description" content="moyu.log">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="木鱼削箫的摸鱼日志">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          OpenCV之图像显示
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2022-10-27 20:10:42" itemprop="dateCreated datePublished" datetime="2022-10-27T20:10:42+08:00">2022-10-27</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-10-29 09:56:03" itemprop="dateModified" datetime="2022-10-29T09:56:03+08:00">2022-10-29</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/" itemprop="url" rel="index"><span itemprop="name">数字图像处理</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>记录OpenCV入门经历以及数字图像处理课程的实验</p>
+<span id="more"></span>
+
+<h2 id="OpenCV学习记录（一）"><a href="#OpenCV学习记录（一）" class="headerlink" title="OpenCV学习记录（一）"></a>OpenCV学习记录（一）</h2><h2 id="环境配置"><a href="#环境配置" class="headerlink" title="环境配置"></a>环境配置</h2><p>使用Python搭配VS-Code和OpenCV库进行实验环境的配置。</p>
+<p>由于python环境和VS-Code很早就安装配置好了，此部分只谈如何在前两者的基础上配置OpenCV的实验环境。</p>
+<p>相比于C++&amp;VS-Code&amp;OpenCV 环境的配置，我要做的其实很简单。</p>
+<p>在命令行窗口（cmd）中输入<code>pip install opencv-python</code>，环境就配置完成了。</p>
+<p>新建一个文件夹作为项目地址，用VSCode将其打开，然后新建一个文件，如<code>ex.py</code>，写入代码</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> cv2</span><br><span class="line"></span><br><span class="line">img=cv2.imread(<span class="string">&#x27;eg.jpg&#x27;</span>,cv2.IMREAD_UNCHANGED)</span><br><span class="line">cv2.namedWindow(<span class="string">&#x27;girl&#x27;</span>,cv2.WINDOW_NORMAL)</span><br><span class="line">cv2.imshow(<span class="string">&#x27;girl&#x27;</span>,img)</span><br><span class="line">cv2.waitKey(<span class="number">0</span>)</span><br></pre></td></tr></table></figure>
+
+<p>其中，<code>eg.jpg</code>是py文件同级文件夹下的一张图片，如果图片位置在其他地方，则可以通过相对路径或者绝对路径来访问。</p>
+<p>然后运行即可，运行效果如下：</p>
+<p><img src="/lxb/undefined/image-20221027204812288.png" alt="image-20221027204812288.png"></p>
+<p> 绝对路径较为简单，但若路径较长会使观感不太好。若使用相对路径，可能还需要简单的配置。</p>
+<h2 id="VS-Code设置"><a href="#VS-Code设置" class="headerlink" title="VS-Code设置"></a>VS-Code设置</h2><p>说到相对路径，VS-Code有一个较为奇怪的设置。</p>
+<p>即运行<code>print(os.getcwd())</code>这行代码时，程序在VS-Code中运行的输出和直接运行后在cmd中的输出结果不一致。如，若该文件的实际位置是<code>D:\Course\DigImgProcessing\exp1\exp.py</code>，则前者输出是<code>D:\Course\DigImgProcessing</code>，后者输出是<code>D:\Course\DigImgProcessing\exp1</code>。</p>
+<p>原因：VS Code把用“File”菜单-&gt;”Open Folder…”选项打开的文件夹的位置(${workspaceFolder} )当做<strong>默认当前工作路径</strong>。</p>
+<p><strong>解决方案：</strong></p>
+<p>先在Settings中，<strong>勾选“Terminal：Excute In File Dir”</strong>，</p>
+<p>然后在项目配置文件<code>launch.json</code>中添加<code>&quot;cwd&quot;: &quot;$&#123;fileDirname&#125;&quot;</code>即可。</p>
+<h2 id="从实验讲起"><a href="#从实验讲起" class="headerlink" title="从实验讲起"></a>从实验讲起</h2><p>终于谈到了学习OpenCV的原因，其实就是数字图像处理实验需要我学习和使用它。</p>
+<p>我是怎么摸索并知道要用它来做实验？其实很简单，无非是老一套的搜索原题找到教程罢了，这一点就不再赘述，先看看第一次实验的题目吧！</p>
+<blockquote>
+<p>Pset1_Basic Image Manipulation</p>
+<p>实验1-1：图像显示</p>
+<p>实验要求：</p>
+<p>1）利用图像库的功能，实现从文件加载图像，并在窗口中进行显示的功能；</p>
+<p>2）利用常见的图像文件格式（.jpg； .png； .bmp； .gif）进行测试。</p>
+<p><img src="/lxb/undefined/clip_image002.jpg" alt="img"></p>
+<p>实验1-2：图像合成</p>
+<p>实验要求：</p>
+<p>1）现有一张4通道透明图像a.png:</p>
+<p>2）从其中提取出alpha通道并显示;</p>
+<p>3）用alpha混合，为a.png替换一张新的背景（bg.png）。 </p>
+<p><img src="/lxb/undefined/image-20221027221157348.png" alt="image-20221027221157348"></p>
+</blockquote>
+<h3 id="实验1-1"><a href="#实验1-1" class="headerlink" title="实验1-1"></a>实验1-1</h3><p>首先是实现从文件加载图像。</p>
+<p>对于像以<code>jpg</code>, <code>png</code>, <code>bmp</code> 甚至<code>webp</code>为文件格式（后缀）的静态图片来说，打开并加载的方式又很多种，因为除了OpenCV以外，python还有很多图像处理的库。</p>
+<p>对于此实验，可以使用 opencv或者python的PIL库（pillow）来实现。</p>
+<h4 id="打开静态图片"><a href="#打开静态图片" class="headerlink" title="打开静态图片"></a>打开静态图片</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> cv2</span><br><span class="line"><span class="keyword">from</span> PIL <span class="keyword">import</span> Image</span><br><span class="line"></span><br><span class="line">path=<span class="string">&#x27;./1-1/eg.jpg&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#opencv</span></span><br><span class="line">img=cv2.imread(path,cv2.IMREAD_UNCHANGED)</span><br><span class="line"><span class="comment">#nameWindow()的作用是为图片准备一个窗口，使得图片是可交互的（如改变大小，这与第二个参数有关），前提是nameWindow和imshow的命名一致。</span></span><br><span class="line"><span class="comment">#直接使用imshow而不用nameWindow也行</span></span><br><span class="line">cv2.nameWindow(<span class="string">&#x27;girl&#x27;</span>,cv2.WINDOW_NORMAL)</span><br><span class="line">cv2.imshow(<span class="string">&#x27;girl&#x27;</span>,img)</span><br><span class="line"><span class="comment">#waitKey中参数决定了窗口打开时长，当参数为0时表示需要手动操作，不会自动关闭。</span></span><br><span class="line">cv2.waitKey(<span class="number">0</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">#PIL</span></span><br><span class="line">img=Image.<span class="built_in">open</span>(path)</span><br><span class="line">img.show()</span><br></pre></td></tr></table></figure>
+
+<h4 id="打开GIF图"><a href="#打开GIF图" class="headerlink" title="打开GIF图"></a>打开GIF图</h4><p>由于没有基础，做这个就颇费了一番功夫，好在也不算太复杂。</p>
+<p>对此，我也找到了两种实现方式。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#识别图像模式</span></span><br><span class="line">im=Image.<span class="built_in">open</span>(file)</span><br><span class="line"><span class="comment">#gif图的mode为P，其他图像一般为RGB或者RGBA</span></span><br><span class="line"><span class="built_in">print</span>(im.mode)</span><br><span class="line"><span class="comment">#或者根据文件的格式来选择读入时使用的方法</span></span><br><span class="line"><span class="built_in">print</span>(im.<span class="built_in">format</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">#使用PIL库来处理GIF</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">showGif1</span>(<span class="params">im</span>):</span><br><span class="line">    <span class="comment">#使用迭代器</span></span><br><span class="line">    <span class="keyword">for</span> frame <span class="keyword">in</span> ImageSequence.Iterator(im):    </span><br><span class="line">        frame = frame.convert(<span class="string">&#x27;RGB&#x27;</span>)</span><br><span class="line">        cv2_frame = np.array(frame)</span><br><span class="line">        show_frame = cv2.cvtColor(cv2_frame, cv2.COLOR_RGB2BGR)</span><br><span class="line">        cv2.imshow(im.<span class="built_in">format</span>, show_frame)</span><br><span class="line">        cv2.waitKey(<span class="number">10</span>)   </span><br><span class="line">    cv2.destroyAllWindows()</span><br><span class="line">    </span><br><span class="line"><span class="comment"># 使用opencv的videoCaptrue来处理GIF</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">showGif2</span>(<span class="params">file</span>):</span><br><span class="line">    cap = cv2.VideoCapture(file)</span><br><span class="line">    <span class="keyword">while</span>(cap.isOpened()):</span><br><span class="line">        <span class="comment"># 一帧一帧捕捉</span></span><br><span class="line">        <span class="comment"># ret=True if it finds a frame else False. </span></span><br><span class="line">        ret, frame = cap.read()</span><br><span class="line">        <span class="keyword">if</span>(ret==<span class="literal">False</span>):</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">        <span class="comment"># 对帧的操作,转为灰度图像</span></span><br><span class="line">        <span class="comment"># gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)</span></span><br><span class="line">        <span class="comment"># 显示返回的每帧</span></span><br><span class="line">        <span class="comment"># cv2.imshow(&#x27;frame&#x27;,gray)</span></span><br><span class="line">        <span class="comment"># 正常读</span></span><br><span class="line">        cv2.imshow(<span class="string">&#x27;GIF&#x27;</span>,frame)</span><br><span class="line">        cv2.waitKey(<span class="number">10</span>)</span><br><span class="line">    <span class="comment"># 当所有事完成，释放 VideoCapture 对象</span></span><br><span class="line">    cap.release()</span><br><span class="line">    cv2.destroyAllWindows()    </span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="图像同窗"><a href="#图像同窗" class="headerlink" title="图像同窗"></a>图像同窗</h4><p>此外，要实现图片中的效果，还需要将四张图片拼接在一起，确切地说是把他们放到同一个窗口中。又花了一天左右，终于实现了此功能，进度太慢了，主要还是不了解python和它的库……</p>
+<h5 id="静态图片同窗"><a href="#静态图片同窗" class="headerlink" title="静态图片同窗"></a>静态图片同窗</h5><p>实现图像同窗展示，其一是用另一个库pyplot的功能。</p>
+<p>关键代码就是</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> matplotlib <span class="keyword">import</span> pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">import</span> cv2</span><br><span class="line"><span class="comment"># 先用cv2读入文件</span></span><br><span class="line">img=cv2.imread(file)</span><br><span class="line"><span class="comment"># 再转换图片的模式，因为opencv处理图像是以BGR处理，python库是以RGB处理</span></span><br><span class="line"><span class="comment"># 若不转换模式，图片展示时颜色会异于原图</span></span><br><span class="line">img=cv2.cvtColor(img,cv2.COLOR_BGR2RGB)</span><br><span class="line"><span class="comment"># 三个参数依次为目标窗口展示图片的行，列和读入图片所在位置</span></span><br><span class="line">plt.subplot(row,col,location)</span><br><span class="line">plt.imshow(img)</span><br><span class="line"><span class="comment"># 图片上的标题</span></span><br><span class="line">plt.title(<span class="string">&#x27;title.png&#x27;</span>)</span><br><span class="line"><span class="comment"># 用以隐藏附着于图的坐标系</span></span><br><span class="line">plt.axis(<span class="string">&#x27;off&#x27;</span>)</span><br><span class="line"><span class="comment"># 作用和上面一行代码一致，二者可替换</span></span><br><span class="line"><span class="comment"># plt.xticks([])</span></span><br><span class="line"><span class="comment"># plt.yticks([])</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 展示拼接后的窗口</span></span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
+<p><strong>实现效果</strong></p>
+<p><img src="/lxb/undefined/image-20221028222036144.png" alt="image-20221028222036144"></p>
+<p>但是上面方法实现的还不够，因为还需要将一张gif存进去。而我实现gif图的展示的最终方式都是通过逐帧播放。</p>
+<p>如果使用python库，如pillow，它打开图片的方式是下面这样，窗口要手动关闭或者借助其他库来关闭，这就使得图片不能连续播放。而opencv的imshow则可以设置cv2.waitKey(time)自动刷新，进而控制gif的播放速度。为了使gif也能和其他静态图片同窗，需要找到其他方法，但是已经很接近了。</p>
+<p><img src="/lxb/undefined/image-20221028223134711.png" alt="image-20221028223134711"></p>
+<h5 id="动静同窗"><a href="#动静同窗" class="headerlink" title="动静同窗"></a>动静同窗</h5><p>上课的时候，学到图片本质就是像素的堆叠。一般来说，图像是一个标准的举行，有着长宽。而矩阵也有行和列，矩阵的操作在数学和计算机中的处理都很常见且成熟，于是很自然的就把图像作为一个矩阵，把对图像的操作转换成对矩阵的操作，实际上所有的图像处理工具都是这么做的。所以接下来，我们操作的本质也是把图片当矩阵处理。</p>
+<p>ps:这些其实都是做完实验后分析过程和结论给出的马后炮了，上课的时候我可没记住……</p>
+<p>开始我找到的还是简单的将图片堆叠的方法，具体就是使用python的numpy库来。<strong>NumPy</strong>(Numerical Python) 是 Python 语言的一个扩展程序库，支持大量的维度数组与矩阵运算，此外也针对数组运算提供大量的数学函数库。图片像素值的读取，替换，随机剪裁，拼接等等都可以使用ndarray。对于已经习惯使用Numpy的人们来说，已经可以不使用OpenCV进行图像处理。</p>
+<p>首先是<code>np.concatenate()</code>函数，它是用来对数列或矩阵进行合并的。</p>
+<p>示例：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line">a=[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]</span><br><span class="line">b=[<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>]</span><br><span class="line">c=np.concatenate((a,b),axis=<span class="number">0</span>)</span><br><span class="line"><span class="built_in">print</span>(c)   </span><br><span class="line"><span class="comment">#输出</span></span><br><span class="line">[<span class="number">1</span> <span class="number">2</span> <span class="number">3</span> <span class="number">4</span> <span class="number">5</span> <span class="number">6</span>]</span><br></pre></td></tr></table></figure>
+
+<p>此函数对数组的处理我并不是充分了解，但是先明白它是可以处理图像拼接的。</p>
+<p><code>merge1=np.concatenate((img1,img2),axis=1)</code></p>
+<p>此行代码的作用是实现两张的图片的横向拼接。不过在拼接前，要令被拼接的图像大小和格式一致，至少对横向拼接的两张图片而言，不要求都是正方形，但图片的纵向长度（宽）应该保持一致。</p>
+<p><code>cv2.imshow(&#39;merge1&#39;,merge1)</code></p>
+<p><img src="/lxb/undefined/image-20221028230419526.png" alt="image-20221028230419526"></p>
+<p>那剩下的一张静态图和一张gif，就可以继续横向拼接。但为了美观，我们可以将其拼接为<strong>“田”</strong>字。也就是在处理gif图时，插入<code>merge2=np.concatenate((img3,frame),1)</code>来拼接图三和gif的某一帧frame，然后再将两张横向图进行纵向的拼接，最后展示。</p>
+<p>也就是</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"> # 纵向拼接两个图像</span><br><span class="line">merge=np.concatenate((merge1,merge2),0)</span><br><span class="line"># 展示</span><br><span class="line">cv2.imshow(&#x27;GIF&#x27;,merge)</span><br><span class="line">cv2.waitKey(10)</span><br></pre></td></tr></table></figure>
+
+<p>最终结果</p>
+<p><img src="/lxb/undefined/res.gif" alt="res"></p>
+<p>此外，还可以用 </p>
+<p><code>merge1=np.hstack([img1,img2])</code></p>
+<p><code>merge2=np.hstack([img3,frame])</code></p>
+<p><code>merge=np.vstack([merge1,merge2])</code></p>
+<p>分别替代上面的<code>np.concatenate()</code>函数，实现的效果是一样的。</p>
+<p>那么至此，实验1-1算是做完了。</p>
+<h4 id="保存gif"><a href="#保存gif" class="headerlink" title="保存gif"></a>保存gif</h4><p>但是写实验报告时，也许还需要贴一张gif图来展示，那么如何制作一张gif图片呢？</p>
+<p>要制作gif图，首先要准备足够的图片作为gif或者视频的帧页，对此，我需要在前面的循环中保存每一帧图片。</p>
+<p>在循环中插入代码</p>
+<p><code>cv2.imwrite(&quot;./frames/frame%d.png&quot; % i,merge)</code></p>
+<p>即可。</p>
+<p>然后根据已有帧页，制作gif。</p>
+<p>方法有很多，贴一个我使用的。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> imageio</span><br><span class="line">frames = []</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">110</span>):</span><br><span class="line">    <span class="comment"># print(img)</span></span><br><span class="line">	img = imageio.imread(<span class="string">&#x27;./frames/frame&#123;&#125;.png&#x27;</span>.<span class="built_in">format</span>(i+<span class="number">1</span>))  <span class="comment"># RGB格式的array</span></span><br><span class="line">	frames.append(img)</span><br><span class="line">imageio.mimsave(<span class="string">&#x27;res.gif&#x27;</span>, frames, fps=<span class="number">30</span>)</span><br></pre></td></tr></table></figure>
+
+<p>注意不要使用这种方式</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> cv2</span><br><span class="line"><span class="keyword">import</span> imageio</span><br><span class="line"></span><br><span class="line">path = <span class="string">&#x27;data&#x27;</span></span><br><span class="line">files = [os.path.join(path, f) <span class="keyword">for</span> f <span class="keyword">in</span> os.listdir(path)]</span><br><span class="line">frames = []</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> f <span class="keyword">in</span> files:</span><br><span class="line">	img = imageio.imread(f)  <span class="comment"># RGB格式的array</span></span><br><span class="line">	frames.append(img)</span><br><span class="line">imageio.mimsave(<span class="string">&#x27;res.gif&#x27;</span>, frames, fps=<span class="number">20</span>)</span><br></pre></td></tr></table></figure>
+
+<p>具体来说是指循环的方式。当帧数大于100时，此循环读文件的顺序并不是我们想象中的从file1到file101，而是按file1,  file100, file101, file102 ,…, file2, file3, … file99的顺序来读的，这使得合成的图片播放顺序有明显的错误。</p>
+<p>这下才算真的而做完了1-1，下一篇更新实验1-2，图像合成。</p>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p>1 <a target="_blank" rel="noopener" href="https://opencv.apachecn.org/#/docs/4.0.0/1.1-tutorial_py_intro">OpenCV-Python 教程简介 (apachecn.org)</a></p>
+<p>2 <a target="_blank" rel="noopener" href="http://c.biancheng.net/pillow/what-is-pillow.html">Pillow是什么 (biancheng.net)</a></p>
+<p>3 <a target="_blank" rel="noopener" href="https://blog.csdn.net/sumaliqinghua/article/details/90404173">Vscode的相对路径读取问题及处理</a></p>
+<p>4 <a href="%5B%E3%80%90OpenCV%E3%80%91imshow()%E5%92%8CnamedWindow(">【OpenCV】imshow()和namedWindow()之间的关系</a>之间的关系，解决两个窗口问题_Running Y的博客-CSDN博客_namedwindow](<a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_43243787/article/details/104755685">https://blog.csdn.net/weixin_43243787/article/details/104755685</a>))</p>
+<p>5 <a target="_blank" rel="noopener" href="https://blog.csdn.net/ITBigGod/article/details/87009082">python使用opencv或matplotlib把多张图片显示在一个窗口内</a></p>
+<p>6 <a target="_blank" rel="noopener" href="https://www.geeksforgeeks.org/how-to-display-multiple-images-in-one-window-using-opencv-python/">How to Display Multiple Images in One Window using OpenCV Python? - GeeksforGeeks</a></p>
+<p>7 <a target="_blank" rel="noopener" href="https://www.cnblogs.com/lfri/p/10596888.html">Python-OpenCV中图像合并显示 </a></p>
+<p>8 <a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_43360801/article/details/109487956">OpenCV实验（1）：图像的加载与显示_</a></p>
+<p>9 <a target="_blank" rel="noopener" href="https://www.cnblogs.com/xiaofeng91/p/14840128.html">pip安装第三方库报错</a></p>
+<p>10 <a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_43508499/article/details/115522755">opencv把一系列图像保存为视频、一系列图像保存为gif</a></p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/lxb/2745876e.html" rel="prev" title="如何上传本地的图片到一篇博客文章中？">
+      <i class="fa fa-chevron-left"></i> 如何上传本地的图片到一篇博客文章中？
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/lxb/377f6b5e.html" rel="next" title="OpenCV之图像合成">
+      OpenCV之图像合成 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#OpenCV%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95%EF%BC%88%E4%B8%80%EF%BC%89"><span class="nav-number">1.</span> <span class="nav-text">OpenCV学习记录（一）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE"><span class="nav-number">2.</span> <span class="nav-text">环境配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#VS-Code%E8%AE%BE%E7%BD%AE"><span class="nav-number">3.</span> <span class="nav-text">VS-Code设置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%8E%E5%AE%9E%E9%AA%8C%E8%AE%B2%E8%B5%B7"><span class="nav-number">4.</span> <span class="nav-text">从实验讲起</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9E%E9%AA%8C1-1"><span class="nav-number">4.1.</span> <span class="nav-text">实验1-1</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%89%93%E5%BC%80%E9%9D%99%E6%80%81%E5%9B%BE%E7%89%87"><span class="nav-number">4.1.1.</span> <span class="nav-text">打开静态图片</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%89%93%E5%BC%80GIF%E5%9B%BE"><span class="nav-number">4.1.2.</span> <span class="nav-text">打开GIF图</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%9B%BE%E5%83%8F%E5%90%8C%E7%AA%97"><span class="nav-number">4.1.3.</span> <span class="nav-text">图像同窗</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E9%9D%99%E6%80%81%E5%9B%BE%E7%89%87%E5%90%8C%E7%AA%97"><span class="nav-number">4.1.3.1.</span> <span class="nav-text">静态图片同窗</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%8A%A8%E9%9D%99%E5%90%8C%E7%AA%97"><span class="nav-number">4.1.3.2.</span> <span class="nav-text">动静同窗</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BF%9D%E5%AD%98gif"><span class="nav-number">4.1.4.</span> <span class="nav-text">保存gif</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99"><span class="nav-number">5.</span> <span class="nav-text">参考资料</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">muyu</p>
+  <div class="site-description" itemprop="description">moyu.log</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">9</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/muyuer6" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;muyuer6" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.zhihu.com/people/mu-yu-xue-xiao" title="知乎 → https:&#x2F;&#x2F;www.zhihu.com&#x2F;people&#x2F;mu-yu-xue-xiao" rel="noopener" target="_blank"><i class=" fa-fw"></i>知乎</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">muyu</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+</body>
+</html>
