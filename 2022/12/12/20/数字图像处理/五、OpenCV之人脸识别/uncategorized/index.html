@@ -23,22 +23,22 @@
   <meta name="description" content="实验4–人脸面部识别 基于人的脸部特征信息进行身份识别的一种生物识别技术。用摄像机或摄像头采集含有人脸的图像或视频流，并自动在图像中检测和跟踪人脸，进而对检测到的人脸进行脸部识别的一系列相关技术，通常也叫做人像识别、面部识别。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="OpenCV之人脸面部识别">
-<meta property="og:url" content="http://muyuer6.github.io/2022/12/12/20/%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/%E4%BA%94%E3%80%81OpenCV%E4%B9%8B%E4%BA%BA%E8%84%B8%E8%AF%86%E5%88%AB1/%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/index.html">
+<meta property="og:url" content="http://muyuer6.github.io/2022/12/12/20/%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/%E4%BA%94%E3%80%81OpenCV%E4%B9%8B%E4%BA%BA%E8%84%B8%E8%AF%86%E5%88%AB/uncategorized/index.html">
 <meta property="og:site_name" content="木鱼削箫的摸鱼日志">
 <meta property="og:description" content="实验4–人脸面部识别 基于人的脸部特征信息进行身份识别的一种生物识别技术。用摄像机或摄像头采集含有人脸的图像或视频流，并自动在图像中检测和跟踪人脸，进而对检测到的人脸进行脸部识别的一系列相关技术，通常也叫做人像识别、面部识别。">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://muyuer6.github.io/2022/12/12/20/%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/%E4%BA%94%E3%80%81OpenCV%E4%B9%8B%E4%BA%BA%E8%84%B8%E8%AF%86%E5%88%AB1/%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/image-20221208204809367.png">
-<meta property="og:image" content="http://muyuer6.github.io/2022/12/12/20/%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/%E4%BA%94%E3%80%81OpenCV%E4%B9%8B%E4%BA%BA%E8%84%B8%E8%AF%86%E5%88%AB1/%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/%E6%9C%AA%E5%91%BD%E5%90%8D%E6%96%87%E4%BB%B6.png">
-<meta property="og:image" content="http://muyuer6.github.io/2022/12/12/20/%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/%E4%BA%94%E3%80%81OpenCV%E4%B9%8B%E4%BA%BA%E8%84%B8%E8%AF%86%E5%88%AB1/%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/image-20221212203310841.png">
-<meta property="og:image" content="http://muyuer6.github.io/2022/12/12/20/%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/%E4%BA%94%E3%80%81OpenCV%E4%B9%8B%E4%BA%BA%E8%84%B8%E8%AF%86%E5%88%AB1/%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/image-20221212203323053.png">
+<meta property="og:image" content="http://muyuer6.github.io/2022/12/12/20/%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/%E4%BA%94%E3%80%81OpenCV%E4%B9%8B%E4%BA%BA%E8%84%B8%E8%AF%86%E5%88%AB/%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/image-20221208204809367.png">
+<meta property="og:image" content="http://muyuer6.github.io/2022/12/12/20/%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/%E4%BA%94%E3%80%81OpenCV%E4%B9%8B%E4%BA%BA%E8%84%B8%E8%AF%86%E5%88%AB/%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/%E6%9C%AA%E5%91%BD%E5%90%8D%E6%96%87%E4%BB%B6.png">
+<meta property="og:image" content="http://muyuer6.github.io/2022/12/12/20/%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/%E4%BA%94%E3%80%81OpenCV%E4%B9%8B%E4%BA%BA%E8%84%B8%E8%AF%86%E5%88%AB/%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/image-20221212203310841.png">
+<meta property="og:image" content="http://muyuer6.github.io/2022/12/12/20/%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/%E4%BA%94%E3%80%81OpenCV%E4%B9%8B%E4%BA%BA%E8%84%B8%E8%AF%86%E5%88%AB/%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/image-20221212203323053.png">
 <meta property="article:published_time" content="2022-12-12T12:35:39.058Z">
 <meta property="article:modified_time" content="2022-12-12T13:16:19.428Z">
 <meta property="article:author" content="muyu">
 <meta property="article:tag" content="working.log">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://muyuer6.github.io/2022/12/12/20/%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/%E4%BA%94%E3%80%81OpenCV%E4%B9%8B%E4%BA%BA%E8%84%B8%E8%AF%86%E5%88%AB1/%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/image-20221208204809367.png">
+<meta name="twitter:image" content="http://muyuer6.github.io/2022/12/12/20/%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/%E4%BA%94%E3%80%81OpenCV%E4%B9%8B%E4%BA%BA%E8%84%B8%E8%AF%86%E5%88%AB/%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/image-20221208204809367.png">
 
-<link rel="canonical" href="http://muyuer6.github.io/2022/12/12/20/%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/%E4%BA%94%E3%80%81OpenCV%E4%B9%8B%E4%BA%BA%E8%84%B8%E8%AF%86%E5%88%AB1/%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/">
+<link rel="canonical" href="http://muyuer6.github.io/2022/12/12/20/%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/%E4%BA%94%E3%80%81OpenCV%E4%B9%8B%E4%BA%BA%E8%84%B8%E8%AF%86%E5%88%AB/uncategorized/">
 
 
 <script id="page-configurations">
@@ -162,7 +162,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://muyuer6.github.io/2022/12/12/20/%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/%E4%BA%94%E3%80%81OpenCV%E4%B9%8B%E4%BA%BA%E8%84%B8%E8%AF%86%E5%88%AB1/%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/">
+    <link itemprop="mainEntityOfPage" href="http://muyuer6.github.io/2022/12/12/20/%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/%E4%BA%94%E3%80%81OpenCV%E4%B9%8B%E4%BA%BA%E8%84%B8%E8%AF%86%E5%88%AB/uncategorized/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -188,15 +188,6 @@
 
               <time title="创建时间：2022-12-12 20:35:39 / 修改时间：21:16:19" itemprop="dateCreated datePublished" datetime="2022-12-12T20:35:39+08:00">2022-12-12</time>
             </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/" itemprop="url" rel="index"><span itemprop="name">数字图像处理</span></a>
-                </span>
-            </span>
 
           
 
@@ -221,7 +212,7 @@
 <p>2）人脸识别程序流程图设计；</p>
 <p>3）根据提供的图像或自己选用图像，编写程序，能够识别出图像中人物的脸部；<strong>识别时用的人脸特征：</strong>“三庭五眼 ”规则高度和宽度比例应该在（ 0.6, 2）内+眼部特征。</p>
 <p>4）实验结果展示。</p>
-<div style="width:80%;margin:auto;"><img src="/2022/12/12/20/%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/%E4%BA%94%E3%80%81OpenCV%E4%B9%8B%E4%BA%BA%E8%84%B8%E8%AF%86%E5%88%AB1/%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/image-20221208204809367.png" class></div>
+<div style="width:80%;margin:auto;"><img src="/2022/12/12/20/%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/%E4%BA%94%E3%80%81OpenCV%E4%B9%8B%E4%BA%BA%E8%84%B8%E8%AF%86%E5%88%AB/%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/image-20221208204809367.png" class></div>
 
 
 
@@ -250,16 +241,16 @@
 <li>将脸区域框起来。</li>
 </ul>
 <p>详细的内容再抄就不礼貌了，还是看这个吧：<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_41748260/article/details/103992272">计算机视觉实验四 人脸面部识别_小西几y的博客-CSDN博客_实验四 人脸识别</a></p>
-<h2 id="二、流程图"><a href="#二、流程图" class="headerlink" title="二、流程图"></a>二、流程图</h2><div style="width:80%;margin:auto;"><img src="/2022/12/12/20/%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/%E4%BA%94%E3%80%81OpenCV%E4%B9%8B%E4%BA%BA%E8%84%B8%E8%AF%86%E5%88%AB1/%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/%E6%9C%AA%E5%91%BD%E5%90%8D%E6%96%87%E4%BB%B6.png" class></div>
+<h2 id="二、流程图"><a href="#二、流程图" class="headerlink" title="二、流程图"></a>二、流程图</h2><div style="width:80%;margin:auto;"><img src="/2022/12/12/20/%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/%E4%BA%94%E3%80%81OpenCV%E4%B9%8B%E4%BA%BA%E8%84%B8%E8%AF%86%E5%88%AB/%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/%E6%9C%AA%E5%91%BD%E5%90%8D%E6%96%87%E4%BB%B6.png" class></div>
 
 
 <p>三、实验代码及效果</p>
 <p>代码不再重复粘贴（多少有点心虚</p>
 <p>实现效果展示如下：</p>
-<div style="width:80%;margin:auto;"><img src="/2022/12/12/20/%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/%E4%BA%94%E3%80%81OpenCV%E4%B9%8B%E4%BA%BA%E8%84%B8%E8%AF%86%E5%88%AB1/%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/image-20221212203310841.png" class></div>
+<div style="width:80%;margin:auto;"><img src="/2022/12/12/20/%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/%E4%BA%94%E3%80%81OpenCV%E4%B9%8B%E4%BA%BA%E8%84%B8%E8%AF%86%E5%88%AB/%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/image-20221212203310841.png" class></div>
 
 
-<div style="width:80%;margin:auto;"><img src="/2022/12/12/20/%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/%E4%BA%94%E3%80%81OpenCV%E4%B9%8B%E4%BA%BA%E8%84%B8%E8%AF%86%E5%88%AB1/%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/image-20221212203323053.png" class></div>
+<div style="width:80%;margin:auto;"><img src="/2022/12/12/20/%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/%E4%BA%94%E3%80%81OpenCV%E4%B9%8B%E4%BA%BA%E8%84%B8%E8%AF%86%E5%88%AB/%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/image-20221212203323053.png" class></div>
 
 
 <p>可见程序的确成功识别人脸，但是在标定眼睛时，出现了标注不全和标注错误的情况，这是一个可以优化的点。</p>
@@ -365,7 +356,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">8</span>
+          <span class="site-state-item-count">9</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -407,7 +398,7 @@
 <div class="copyright">
   
   &copy; 
-  <span itemprop="copyrightYear">2022</span>
+  <span itemprop="copyrightYear">2023</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
